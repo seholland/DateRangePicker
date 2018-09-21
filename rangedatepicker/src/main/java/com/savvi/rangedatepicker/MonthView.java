@@ -77,7 +77,6 @@ public class MonthView extends LinearLayout {
   }
 
   private static boolean isRtl(Locale locale) {
-    // TODO convert the build to gradle and use getLayoutDirection instead of this (on 17+)?
     final int directionality = Character.getDirectionality(locale.getDisplayName(locale).charAt(0));
     return directionality == Character.DIRECTIONALITY_RIGHT_TO_LEFT
         || directionality == Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC;
@@ -100,9 +99,17 @@ public class MonthView extends LinearLayout {
     title = (TextView) findViewById(R.id.title);
     grid = (CalendarGridView) findViewById(R.id.calendar_grid);
   }
-
+  
+  /**
+   * @param month
+   * @param cells
+   * @param displayOnly
+   * @param titleTypeface
+   * @param dateTypeface
+   * @param deactivatedDays List of unavailable days of the week
+   */
   public void init(MonthDescriptor month, List<List<MonthCellDescriptor>> cells,
-      boolean displayOnly, Typeface titleTypeface, Typeface dateTypeface, ArrayList<Integer> deactivatedDates) {
+      boolean displayOnly, Typeface titleTypeface, Typeface dateTypeface, ArrayList<Integer> deactivatedDays) {
     Logr.d("Initializing MonthView (%d) for %s", System.identityHashCode(this), month);
     long start = System.currentTimeMillis();
     title.setText(month.getLabel());
@@ -126,13 +133,13 @@ public class MonthView extends LinearLayout {
           }
           cellView.setEnabled(cell.isCurrentMonth());
           int dayOfWeek = c+1;
-          if(deactivatedDates.contains(dayOfWeek))
+          if(deactivatedDays.contains(dayOfWeek))
             cellView.setClickable(false);
           else
             cellView.setClickable(!displayOnly);
 
 
-            if(deactivatedDates.contains(dayOfWeek))
+            if(deactivatedDays.contains(dayOfWeek))
             {
                 cellView.setSelectable(cell.isSelectable());
                 cellView.setSelected(false);
