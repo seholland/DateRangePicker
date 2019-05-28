@@ -1,43 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.savvi.rangedatepicker.CalendarRowView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    >
-  <com.savvi.rangedatepicker.CalendarCellView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="@android:color/background_light"
-      />
-  <com.savvi.rangedatepicker.CalendarCellView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="@android:color/background_light"
-      />
-  <com.savvi.rangedatepicker.CalendarCellView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="@android:color/background_light"
-      />
-  <com.savvi.rangedatepicker.CalendarCellView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="@android:color/background_light"
-      />
-  <com.savvi.rangedatepicker.CalendarCellView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="@android:color/background_light"
-      />
-  <com.savvi.rangedatepicker.CalendarCellView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="@android:color/background_light"
-      />
-  <com.savvi.rangedatepicker.CalendarCellView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="@android:color/background_light"
-      />
+<com.savvi.rangedatepicker.CalendarRowView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <com.savvi.rangedatepicker.CalendarCellView
+            android:id="@+id/sunday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/background_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/monday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.savvi.rangedatepicker.CalendarCellView
+            android:id="@+id/monday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/background_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tuesday"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/sunday"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.savvi.rangedatepicker.CalendarCellView
+            android:id="@+id/tuesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/background_light" />
+
+        <com.savvi.rangedatepicker.CalendarCellView
+            android:id="@+id/wednesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/background_light" />
+
+        <com.savvi.rangedatepicker.CalendarCellView
+            android:id="@+id/thursday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/background_light" />
+
+        <com.savvi.rangedatepicker.CalendarCellView
+            android:id="@+id/friday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/background_light" />
+
+        <com.savvi.rangedatepicker.CalendarCellView
+            android:id="@+id/saturday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/background_light" />
 </com.savvi.rangedatepicker.CalendarRowView>

@@ -356,6 +356,11 @@ public class CalendarPickerView extends ListView
 		adapter.notifyDataSetChanged();
 	}
 	
+	public void notifyDataSetChanged()
+	{
+		validateAndUpdate();
+	}
+	
 	private void scrollToSelectedMonth(final int selectedIndex)
 	{
 		scrollToSelectedMonth(selectedIndex, false);
@@ -558,10 +563,10 @@ public class CalendarPickerView extends ListView
 		{
 			Date clickedDate = cell.getDate();
 			
-			if(highlightedCells.contains(cell))
-			{
-				return;
-			}
+//			if(highlightedCells.contains(cell))
+//			{
+//				return;
+//			}
 			
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(clickedDate);
