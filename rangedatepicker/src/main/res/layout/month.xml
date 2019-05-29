@@ -2,6 +2,7 @@
 
 <com.savvi.rangedatepicker.MonthView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -25,41 +26,48 @@
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/calendar_day_headers_paddingbottom"
         >
+
       <TextView
+          style="@style/CalendarCell.DayHeader"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          style="@style/CalendarCell.DayHeader"
-          />
+          tools:text="Sun" />
+
       <TextView
+          style="@style/CalendarCell.DayHeader"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          style="@style/CalendarCell.DayHeader"
-          />
+          tools:text="Mon" />
+
       <TextView
+          style="@style/CalendarCell.DayHeader"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          style="@style/CalendarCell.DayHeader"
-          />
+          tools:text="Tue" />
+
       <TextView
+          style="@style/CalendarCell.DayHeader"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          style="@style/CalendarCell.DayHeader"
-          />
+          tools:text="Wed" />
+
       <TextView
+          style="@style/CalendarCell.DayHeader"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          style="@style/CalendarCell.DayHeader"
-          />
+          tools:text="Thu" />
+
       <TextView
+          style="@style/CalendarCell.DayHeader"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          style="@style/CalendarCell.DayHeader"
-          />
+          tools:text="Fri" />
+
       <TextView
+          style="@style/CalendarCell.DayHeader"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          style="@style/CalendarCell.DayHeader"
-          />
+          tools:text="Sat " />
     </com.savvi.rangedatepicker.CalendarRowView>
     <include layout="@layout/week"/>
     <include layout="@layout/week"/>
