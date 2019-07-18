@@ -6,22 +6,31 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <FrameLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:duplicateParentState="true"
-        android:minWidth="48dp"
-        android:minHeight="48dp">
+        android:duplicateParentState="true">
 
         <TextView
             android:id="@+id/text"
             style="@style/CalendarCell.CalendarDate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:duplicateParentState="true"
             android:gravity="center"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="88" />
-    </FrameLayout>
+
+        <View
+            android:id="@+id/indicator"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:background="@color/calendar_highlighted_day_bg"
+            app:layout_constraintBottom_toBottomOf="@id/text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </android.support.constraint.ConstraintLayout>
 </merge>

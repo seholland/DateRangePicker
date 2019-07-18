@@ -74,7 +74,7 @@ public class CalendarRowView extends ViewGroup implements View.OnClickListener
 			int        r     = ((c + 1) * width) / 7;
 			child.layout(l, 0, r, cellHeight);
 		}
-//		Logr.d("Row.onLayout %d ms", System.currentTimeMillis() - start);
+//		Log.d("Row.onLayout %d ms", System.currentTimeMillis() - start);
 	}
 	
 	public void setIsHeaderRow(boolean isHeaderRow)

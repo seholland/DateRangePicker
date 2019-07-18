@@ -49,6 +49,7 @@ public class CalendarCellView extends FrameLayout
 	private boolean    isDeactivated  = false;
 	private RangeState rangeState     = RangeState.NONE;
 	private TextView   dayOfMonthTextView;
+	private View       indicator;
 	
 	public CalendarCellView(Context context)
 	{
@@ -231,5 +232,14 @@ public class CalendarCellView extends FrameLayout
 			dayOfMonthTextView.setDuplicateParentStateEnabled(true);
 		}
 		return dayOfMonthTextView;
+	}
+	
+	public View getIndicator()
+	{
+		if(indicator == null)
+		{
+			indicator = findViewById(R.id.indicator);
+		}
+		return indicator;
 	}
 }

@@ -195,7 +195,15 @@ public class CalendarPickerView extends ListView
 		{
 			monthNameFormat.setTimeZone(timeZone);
 		}
-		weekdayNameFormat = new SimpleDateFormat("E", locale);
+		
+		if(getResources().getBoolean(R.bool.large_layout))
+		{
+			weekdayNameFormat = new SimpleDateFormat("E", locale);
+		}
+		else
+		{
+			weekdayNameFormat = new SimpleDateFormat("EEEEE", locale);
+		}
 		weekdayNameFormat.setTimeZone(timeZone);
 		fullDateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, locale);
 		fullDateFormat.setTimeZone(timeZone);
@@ -809,18 +817,27 @@ public class CalendarPickerView extends ListView
 	{
 		for(Date date : dates)
 		{
-			validateDate(date);
-			
-			MonthCellWithMonthIndex monthCellWithMonthIndex = getMonthCellWithIndexByDate(date);
-			if(monthCellWithMonthIndex != null)
+			//Ignore dates not in range
+			try
 			{
-				Calendar newlyHighlightedCal = Calendar.getInstance(timeZone, locale);
-				newlyHighlightedCal.setTime(date);
-				MonthCellDescriptor cell = monthCellWithMonthIndex.cell;
 				
-				highlightedCells.add(cell);
-				highlightedCals.add(newlyHighlightedCal);
-				cell.setHighlighted(true);
+				validateDate(date);
+				
+				MonthCellWithMonthIndex monthCellWithMonthIndex = getMonthCellWithIndexByDate(date);
+				if(monthCellWithMonthIndex != null)
+				{
+					Calendar newlyHighlightedCal = Calendar.getInstance(timeZone, locale);
+					newlyHighlightedCal.setTime(date);
+					MonthCellDescriptor cell = monthCellWithMonthIndex.cell;
+					
+					highlightedCells.add(cell);
+					highlightedCals.add(newlyHighlightedCal);
+					cell.setHighlighted(true);
+				}
+			}
+			catch(Throwable tr)
+			{
+				//The current date is out of range. Ignore
 			}
 		}
 		
@@ -937,7 +954,7 @@ public class CalendarPickerView extends ListView
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent)
 		{
-			//Logr.d("Adaper Position ==>" + position);
+			//Logr.d("Adapter Position ==>" + position);
 			MonthView monthView = (MonthView) convertView;
 			if(monthView == null || !monthView.getTag(R.id.day_view_adapter_class).equals(dayViewAdapter.getClass()))
 			{
@@ -949,6 +966,7 @@ public class CalendarPickerView extends ListView
 			{
 				monthView.setDecorators(decorators);
 			}
+			
 			if(monthsReverseOrder)
 			{
 				position = months.size() - position - 1;
